@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Dom Projects
+    </title>
+    <link rel="stylesheet" href="09-dom-projects.css">
+ </head>
+ <body>
+<p class="Youtube-subscribe-button-heading">YouTube Subscribe Button</p>
+<button class="subscribe-button" onclick=" subscribe();"
+
+class= "js-subscribe-button">subscribe</button>
+<p>Amazon Shipping Calculator</p>
+
+<p>Orders under $40=+$10 Shipping</p>
+<p>Orders over $40=FREE shipping</p> 
+<input  type="text" placeholder="cost of order"class="inputValue input-button"
+onkeydown="
+Enterkey(event);
+console.log(event.key)
+">
+<button class="input-button   button" onclick="
+calculate();
+">calculate</button>
+<p class="results"> </p>
+
+    <script>
+      function Enterkey(event)
+      {
+        if(event.key==='Enter')
+        {
+          calculate();
+        }
+
+
+      }
+      function calculate()
+      {
+       const inputElement=document.querySelector('.inputValue')
+       if(inputElement.value<40)
+       {
+       document.querySelector('.results').innerHTML=`$${Number(inputElement.value)+10}`;
+       }
+       else if(inputElement.value>=40)
+       {
+        document.querySelector('.results').innerHTML=`$${inputElement.value}`;
+       }
+       
+       console.log(inputElement)
+      }
+
+      function subscribe()
+      {
+      const buttonElement=document.querySelector('.js-subscribe-button');
+          if (buttonElement.innerText=== 'subscribe')
+            {
+              buttonElement.innerHTML='subscribed';
+            }
+            else{
+              buttonElement.innerHTML='subscribe';
+                }
+      console.log(buttonElement);
+      }
+     
+</script>
+    
+  </body>
+</html>
